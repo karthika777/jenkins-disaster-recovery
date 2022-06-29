@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Get Jenkinsfile') {
             steps {
-                git branch: 'main', credentialsId: 'jen_bkup_test', url: 'https://github.com/karthika777/jenkins-disaster-recovery.git'
+                git branch: 'main', credentialsId: 'jen_bkup_test1', url: 'https://github.com/karthika777/jenkins-disaster-recovery.git'
             }
         }
         stage('Run Script') {
