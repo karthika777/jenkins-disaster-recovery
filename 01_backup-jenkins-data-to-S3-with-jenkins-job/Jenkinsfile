@@ -4,7 +4,7 @@ pipeline {
     stages {
         stage('Get Jenkinsfile') {
             steps {
-                git branch: 'dev', credentialsId: 'your-credentials-id-on-jenkins', url: 'https://github.com/flovearth/22_jenkins-disaster-recovery.git'
+                git branch: 'main', credentialsId: 'amk_ns_test', url: ''
             }
         }
         stage('Run Script') {
@@ -19,10 +19,10 @@ pipeline {
                         $class: 'AmazonWebServicesCredentialsBinding', 
                         accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
                         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY',
-                        credentialsId: 'your-credentials-name'
+                        credentialsId: 'amk_ns_test'
                     ]]) {
                         sh '''
-                            aws s3 sync /var/jenkins_home s3://<Your-S3-bucker-name> --exclude "workspace/*" --delete
+                            aws s3 sync /var/jenkins_home s3://jenkins.backut.test.bucket01 --exclude "workspace/*" --delete
                         '''
                     }
                 }                
