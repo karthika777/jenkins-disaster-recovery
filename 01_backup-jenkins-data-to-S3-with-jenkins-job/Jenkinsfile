@@ -19,7 +19,7 @@ pipeline {
                         $class: 'AmazonWebServicesCredentialsBinding', 
                         accessKeyVariable: 'AWS_ACCESS_KEY_ID', 
                         secretKeyVariable: 'AWS_SECRET_ACCESS_KEY',
-                        credentialsId: 'aws-access-secret-credentials'
+                        credentialsId: 'aws_cdl'
                     ]]) {
                         sh '''
                             aws s3 sync /var/jenkins_home s3://jenkins.backut.test.bucket01 --exclude "workspace/*" --delete
